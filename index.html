@@ -6,14 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog del Café</title>
+    <meta name="description" content="Página web de blog de café">
 
+    <!-- Prefetch  (precarga una pagina. normalmente se acostunbra aplicarle prefetch a la pag. que el usuario mas visata)-->
+    <link rel="prefetch" href="nosotros.html" as="document">
+
+    <!-- Preloads y enlaces-->
+    <!-- Normalize-->
+    <link rel="preload" href="css/normalize.css" as="style">
     <link rel="stylesheet" href="css/normalize.css">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- Fuente-->
+    <link rel="preloa"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
+        crossorigin="crossorigin" as="font">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
         rel="stylesheet">
 
+    <!-- Hoja de estilos-->
+    <link rel="preload" href="css/style.css" as="style">
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Imagen-->
+    <!--   <link rel="preload" href="img/Cafe1.jpg" as="image">  -->
+
 </head>
 
 <body>
@@ -46,7 +62,10 @@
 
             <article class="entrada">
                 <div class="entrada__imagen">
-                    <img src="/img/blog1.jpg" alt="imagen blog">
+                    <picture>
+                        <source loading="lazy" srcset="img/blog1.webp" type="image/webp">
+                        <img loading="lazy" src="img/blog1.jpg" alt="imagen blog">
+                    </picture>
                 </div>
 
                 <div class="entrada_contenido">
@@ -61,7 +80,10 @@
 
             <article class="entrada">
                 <div class="entrada__imagen">
-                    <img src="/img/blog2.jpg" alt="imagen blog">
+                    <picture>
+                        <source loading="lazy" srcset="img/blog2.webp" type="image/webp">
+                        <img loading="lazy" src="img/blog2.jpg" alt="imagen blog">
+                    </picture>
                 </div>
 
                 <div class="entrada_contenido">
@@ -76,7 +98,10 @@
 
             <article class="entrada">
                 <div class="entrada__imagen">
-                    <img src="/img/blog3.jpg" alt="imagen blog">
+                    <picture>
+                        <source loading="lazy" srcset="img/blog3.webp" type="image/webp">
+                        <img loading="lazy" src="img/blog3.jpg" alt="imagen blog">
+                    </picture>
                 </div>
 
                 <div class="entrada_contenido">
@@ -102,7 +127,7 @@
                     <p class="widget-curso__label">Cupo:
                         <span class="widget-curso__info">20</span>
                     </p>
-                    <a href="entrada.html" class="boton boton--secundario">Mas información</a>
+                    <a href="entrada.html" class="boton boton--secundario">Mas información sobre nuestros cursos</a>
                 </li>
 
                 <li class="widget-curso">
@@ -135,6 +160,8 @@
         </div>
 
     </footer>
+
+    <script src="js/modernizr.js"></script>
 
 </body>
 
