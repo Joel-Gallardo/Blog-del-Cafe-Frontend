@@ -5,11 +5,12 @@
     --colorPrimario: #784D3C;
     --blanco: #ffffff;
     --negro: #000000;
+    --gris: #e1e1e1;
 }
 
 html {
     box-sizing: border-box;       /*solucion:el border o padding etc, no afecta el tamaño de los elementos*/
-    font-size: 62.5px; /*1rem = 10px*/
+    font-size: 62.5%; /*1rem = 10px*/
 }
 *, *:before, *:after {            /*solucion:el border o padding etc, no afecta el tamaño de los elementos*/
     box-sizing: inherit;          /*solucion:el border o padding etc, no afecta el tamaño de los elementos*/
@@ -31,6 +32,7 @@ a { /*enlaces*/
 }
 h1, h2, h3, h4 { /*para todos los headings*/
     font-family: var(--fuenteHeading);  /*fuente*/
+    line-height: 1.2;
 }
 h1 {
     font-size: 4.8rem; 
@@ -55,6 +57,209 @@ img {
 .no-padding {
     padding: 0; /*elimina el padding a un elemento*/
 }
-.centrar.texto {
+.centrar-texto {
+    text-align: center; /*centra el texto*/
+}
+
+/** Header **/
+.header {
+    background-image: url(../img/banner.jpg);
+    height: 60rem;      /*se le da tamaño para que aparezca la img*/
+    background-size: cover;     /*toma todo el espacio disponible*/
+    background-repeat: no-repeat;       /*evita que se repita la imagen*/
+    background-position: center center; /*siempre muestra la parte central de la imagen sin importar tamaño de la pag.*/
+}
+.header__texto {
+    text-align: center;     /*alinea el texto*/
+    color: var(--blanco);       /*da color al texto*/
+    margin-top: 5rem;       /*da un margen de 5rem arriba*/
+}
+@media (min-width: 768px) {
+    .header__texto {
+        margin-top: 15rem;
+    }
+}
+
+@media (min-width: 768px) {
+     .barra {
+         display:flex;
+         justify-content: space-between;
+         align-items: center;
+     }
+}
+.barra {
+    padding-top: 3rem;
+}
+.logo {
+    color: var(--blanco);
+}
+.logo__nombre {
+    font-weight:normal;
+}
+.logo__bold {
+    font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    .navegacion {
+        display: flex;
+        gap: 2rem;
+    }
+}
+.navegacion__enlace {
+    display: block;
     text-align: center;
+    color: var(--blanco);
+    font-size: 1.8rem;
+}
+
+@media (min-width: 768px) {
+    .contenido-principal {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 5rem;
+    }
+}
+.entrada {
+    border-bottom: 1px solid var(--gris);
+    margin-bottom: 2rem;
+}
+.entrada:last-of-type {
+    border:none;
+    margin-bottom: 0;
+}
+.boton {
+    display:block;
+    font-family: var(--fuenteHeading);
+    color: var(--blanco);
+    text-align: center;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    border: none;
+}
+@media (min-width: 768px) {
+    .boton {
+        display: inline-block;
+    }
+}
+.boton:hover {
+    cursor: pointer;
+}
+.boton--primario {
+    background-color: var(--negro);
+}
+.boton--secundario {
+    background-color: var(--colorPrimario);
+}
+.cursos {
+    list-style: none;
+}
+
+.widget-curso {
+    border-bottom: 1px solid var(--gris);
+    margin-bottom: 2rem;
+}
+.widget-curso:last-of-type {
+    border: none;
+    margin-bottom: 0;
+}
+.widget-curso__label,
+.curso__label {
+    font-family: var(--fuenteHeading);
+    font-weight: bold;
+}
+.widget-curso__info,
+.curso__info {
+    font-weight: normal;
+}
+.widget-curso__label,
+.widget-curso__info,
+.curso__label,
+.curso__info {
+    font-size: 2rem;
+}
+.footer {
+    background-color: var(--negro);
+    padding-bottom: 3rem;
+    margin-top: 4rem;
+}
+
+/** Sobre Nosotros **/
+@media (min-width: 768px) {
+    .sobre-nosotros {
+        display:flex;
+        gap: 2rem;
+    }
+    .sobre-nosotros__imagen,
+    .sobre-nosotros__texto {
+        flex-basis: 50%; /*iguala el tamaño de estos 2 elementos*/
+    }
+
+    /**sintaxis para hacerlo sin gap, ya que no tiene soporte en ios*/
+    /*.sobre-nosotros {
+        display:flex;
+        justify-content: space-between;
+    }
+    .sobre-nosotros__imagen,
+    .sobre-nosotros__texto {
+        flex-basis: calc(59% - 1rem); /*iguala el tamaño de estos 2 elementos/
+    }*/
+
+    /**sintaxis para hacerlo con grid*/
+   /* .sobre-nosotros {
+        display:grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }*/
+}
+
+/** Cursos **/
+.curso {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--gris);
+}
+@media (min-width: 768px) {
+    .curso {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 2rem;
+    }
+}
+.curso:last-of-type {
+    border: none;
+}
+
+/** Contacto **/
+.contacto-bg {
+    background-image: url(../img/contacto.jpg);
+    height: 40rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/** Contacto Formulario **/
+.formulario {
+    background-color: var(--blanco);
+    margin: -5rem auto 0 auto;
+    width: 95%;
+    padding: 5rem;
+}
+.campo {
+    display: flex;
+    margin-bottom: 2rem;
+}
+.campo__label {
+    flex: 0 0 9rem;
+    text-align: right;
+    padding-right: 2rem;
+}
+.campo__field {
+    flex: 1;
+    border: 1px solid var(--gris);
+}
+.campo__field--textarea {
+    height:20rem;
 }
